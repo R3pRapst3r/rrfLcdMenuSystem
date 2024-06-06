@@ -1,9 +1,9 @@
-; Duet 12864 Menu Files
+; RepRapFirmware 12864 Menu Files
 ;
-; This is a set of menu files for running a 12864 display with a duet3D control board.
+; Menus for a 12864 LCD connected to a control board running RRF.
 ;
-; Written by Jadon Miller - 2/27/2019
-; Partially adapted from the work of tinkerlifeprojects on Github.
+; Updated by RepRapster - 6/6/2024
+; Adapted from the work of jadonmmiller on Github.
 ;
 ; File "listFilesSD1"
 ;

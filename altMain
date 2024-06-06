@@ -56,7 +56,7 @@ text T" mm"
 
 
 ; --------------- Scroll Button ---------------
-button R25 C6 F1 T" « " A"return"
+button R25 C0 F0 T"<< Prev" A"return"
 
 
 ; --------------- Axis Positions ---------------

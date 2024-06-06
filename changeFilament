@@ -1,9 +1,9 @@
-; Duet 12864 Menu Files
+; RepRapFirmware 12864 Menu Files
 ;
-; This is a set of menu files for running a 12864 display with a duet3D control board.
+; Menus for a 12864 LCD connected to a control board running RRF.
 ;
-; Written by Jadon Miller - 2/27/2019
-; Partially adapted from the work of tinkerlifeprojects on Github.
+; Updated by RepRapster - 6/6/2024
+; Adapted from the work of jadonmmiller on Github.
 ;
 ; File "changeFilament"
 ;
@@ -22,21 +22,33 @@ image R11 C0 L"imgs/hline.img"
 
 ; --------------- Temperature ---------------
 ; Note: you may need to change this section depending on your default heater number.
-image R16 C28 L"imgs/temp.img"
-alter C40 N100 W20 H2
-text T" / "
-value N0 W20
+
+text R14 C0 T"T0:"
+value N0 W18 H2
+text T"/"
+alter N100 W18
+text T"°C"
+
+text R14 C65 T"T1:"
+value N1 W18 H2
+text T"/"
+alter N101 W18
 text T"°C"
 
 
 ; --------------- Buttons ---------------
-button R32 C0 W45 H1 T"Unload" A"M98 P0:/menu/scripts/unload.g"
-button C48 T"-5 " A"T0 G91 G1 E-5 F400"
-button C65 T"+5 " A"T0 G91 G1 E+5 F400"
-button C83 W45 T"Load" A"M98 P0:/menu/scripts/load.g"
+button R26 C0 T"Unload T0" A"M98 P0:/menu/scripts/unload_T0.g"
+button C48 T" -5 " A"T0 G91 G1 E-5 F400"
+button C65 T" +5 " A"T0 G91 G1 E+5 F400"
+button T"Load T0" A"M98 P0:/menu/scripts/load_T0.g"
+
+button R38 C0 T"Unload T1" A"M98 P0:/menu/scripts/unload_T1.g"
+button C48 T" -5 " A"T1 G91 G1 E-5 F400"
+button C65 T" +5 " A"T1 G91 G1 E+5 F400"
+button T"Load T1" A"M98 P0:/menu/scripts/load_T1.g"
 
 
 ; --------------- Print Button---------------
 ; The "print" button is shown when not printing and "resume" when paused.
-button R48 C0 W128 V5 T"Print" A"menu selectSD"
-button R48 C0 W128 V6 T"Resume" A"M24|menu main"
+button R50 C0 W128 V5 T"Print" A"menu selectSD"
+button R50 C0 W128 V6 T"Resume" A"M24|menu main"

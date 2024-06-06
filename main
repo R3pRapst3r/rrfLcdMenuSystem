@@ -1,9 +1,9 @@
-; Duet 12864 Menu Files
+; RepRapFirmware 12864 Menu Files
 ;
-; This is a set of menu files for running a 12864 display with a duet3D control board.
+; Menus for a 12864 LCD connected to a control board running RRF.
 ;
-; Written by Jadon Miller - 2/27/2019
-; Partially adapted from the work of tinkerlifeprojects on Github.
+; Updated by RepRapster - 6/6/2024
+; Adapted from the work of jadonmmiller on Github.
 ;
 ; File "main"
 ;
@@ -43,27 +43,39 @@ button W42 V6 T"Abort" A"menu confirmAbort"
 image R11 C0 L"imgs/hline.img"
 
 ; Bed Temp
-image R14 C25 L"imgs/bed.img"
-alter R14 C40 N180 W20 H2
-text T" / "
-value N80 W20
+image R14 C0 L"imgs/bed.img"
+value R14 C15 N80 W20 H2
+text T"/"
+alter N180 W20
 text T"°C"
 
-; Hotend Temp
-image R26 C25 L"imgs/temp.img"
-alter C40 N100 W20 H2
-text T" / "
-value N0 W20
+; Hotend 0 Temp
+image R26 C0 L"imgs/temp.img"
+value R26 C15 N0 W20 H2
+text T"/"
+alter N100 W20
 text T"°C"
 
-; Fan Speed
-image R38 C25 L"imgs/fan.img"
-alter C52 N300 W25 H1
-button C80 F0 T"OFF" A"M106 P0 S0"
+; Fan 0 Speed
+image R26 C70 L"imgs/fan.img"
+alter R26 C80 N300 W20 H1
+button F0 T" OFF " A"M106 P0 S0"
+
+; Hotend 1 Temp
+image R38 C0 L"imgs/temp.img"
+value R38 C15 N1 W20 H2
+text T"/"
+alter N101 W20
+text T"°C"
+
+; Fan 1 Speed
+image R38 C70 L"imgs/fan.img"
+alter R38 C80 N301 W20 H1
+button F0 T" OFF " A"M106 P1 S0"
 
 
 ; --------------- Scroll Button ---------------
-button R25 C104 F1 T" » " A"menu altMain"
+button R13 C80 F0 T"Next >>" A"menu altMain"
 
 
 ; --------------- Axis Positions ---------------
